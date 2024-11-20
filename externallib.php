@@ -284,7 +284,7 @@ class moodle_enrol_razorpaypayment_external extends external_api {
                 'currency'        => $currency,
                 'payment_capture' => 1 // auto capture
             ];
-            //$razorpayOrder = $api->order->create($orderData);
+            $razorpayOrder = $api->order->create($orderData);
             //$data->orderid    =  $razorpayOrder->id;
             //$DB->insert_record("enrol_razorpaypayment", $data);
             //print_r($razorpayOrder);die;
@@ -306,7 +306,7 @@ class moodle_enrol_razorpaypayment_external extends external_api {
                 "theme"             => [
                 "color"             => "#0DBD9D"
                 ],
-                "order_id"          => "order_O2mgMvXY1Q94uO"/*$razorpayOrder->id*/,
+                "order_id"          => $razorpayOrder->id,
                 "callback_url"      => $CFG->wwwroot.'/webservice/rest/server.php?wstoken=' .$user_token. '&wsfunction=moodle_razorpaypayment_success_razorpay_url&moodlewsrestformat=json&user_id=' .$user_id. '&instance_id=' .$instance_id. '',
                 "modal"             => [
                 "confirm_close"     => "true",
